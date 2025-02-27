@@ -57,25 +57,25 @@ v
 
 # Three good CES
 
-A = 
-r = 
-sigma = 1/(1-r)
-a1 = 
-a2 = 
-a3 = 
-w1 = 
-w2 = 
-w3 = 
-M
+A = 1
+r = 1 - 1/sigma
+sigma = 0.74
+a1 = 0.33
+a2 = 0.4
+a3 = 0.27
+w1 = 5
+w2 = 8
+w3 = 6
+M = 56
 
-x_1 = M/w1 * (a1/(a1 + a2 + a3))
-x_2 = M/w2 * (a2/(a1 + a2 + a3))
-x_3 = M/w3 * (a3/(a1 + a2 + a3))
-v = A * (a1/w1)^a1 * (a3/w3)^a3 * (a2/w2)^a2 * (M/(a1 + a2 + a3))^(a1 + a2 + a3)
+x_1 = ( M * (a1/w1)^sigma ) / (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma + w3 * (a3/w3)^sigma)
+x_2 = ( M * (a2/w2)^sigma ) / (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma + w3 * (a3/w3)^sigma)
+x_3 = ( M * (a3/w3)^sigma ) / (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma + w3 * (a3/w3)^sigma)
+v = A * M * (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma + w3 * (a3/w3)^sigma) ^ (1/(sigma - 1))
 
 x_1
 x_2
-X_3
+x_3
 v
 
 
