@@ -39,13 +39,13 @@ e
 # Two good CES
 
 A = 1
-r = 1 - 1/sigma
 sigma = 1.43
+r = 1 - 1/sigma
 a1 = 0.7
 a2 = 0.3
-w1 = 6
+w1 = 7
 w2 = 7
-U = 77
+U = 73
 
 xh_1 = U * (a1/w1)^sigma * (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma)^(sigma/1-sigma)
 xh_2 = U * (a2/w2)^sigma * (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma)^(sigma/1-sigma)
@@ -58,8 +58,8 @@ e
 # Three good CES
 
 A = 1
-r = 1 - 1/sigma
 sigma =
+r = 1 - 1/sigma
 a1 = 0.2
 a2 = 0.8
 a3 = 
