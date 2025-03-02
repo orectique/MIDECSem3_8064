@@ -1,4 +1,6 @@
-# Two good Cobb-Douglas - Utility Maximization
+# Utility Maximization
+
+## Two good Cobb-Douglas
 
 A = 1
 a1 = 0.75
@@ -15,7 +17,7 @@ x_1
 x_2 
 v
 
-# Three good Cobb-Douglas
+## Three good Cobb-Douglas
 
 A = 1
 a1=0.75
@@ -36,16 +38,16 @@ x_2
 x_3
 v
 
-# Two good CES
+## Two good CES
 
 A = 1 
 sigma = 0.83
 r = 1 - 1/sigma
-a1 = 0.75
-a2 = 0.25
-w1 = 6
+a1 = 0.33
+a2 = 0.67
+w1 = 7
 w2 = 5
-M = 50
+M = 45
 
 x_1 = ( M * (a1/w1)^sigma ) / (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma)
 x_2 = ( M * (a2/w2)^sigma ) / (w1 * (a1/w1)^sigma + w2 * (a2/w2)^sigma)
@@ -55,11 +57,11 @@ x_1
 x_2
 v
 
-# Three good CES
+## Three good CES
 
 A = 1
-r = 1 - 1/sigma
 sigma = 0.74
+r = 1 - 1/sigma
 a1 = 0.33
 a2 = 0.4
 a3 = 0.27
@@ -78,7 +80,24 @@ x_2
 x_3
 v
 
+# Expenditure Minimization
 
+## Two good Cobb-Douglas
+
+A = 1
+a1 = 0.8
+a2 = 0.2
+w1 = 7
+w2 = 7
+U = 78
+
+x_1 = a1 * w1^(-1) * a1^(-a1) *a2^(-a2) * w1^a1 * w2^a2 * U
+x_2 = a2 * w2^(-1) * a1^(-a1) *a2^(-a2) * w1^a1 * w2^a2 * U
+e  = a1^(-a1) *a2^(-a2) * w1^a1 * w2^a2 * U
+
+x_1
+x_2
+e
 
 
 
