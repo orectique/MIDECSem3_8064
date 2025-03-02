@@ -1,5 +1,6 @@
 ---
 title: "Compensating and Equivalent Variation"
+output: "html_document"
 ---
 
 ```{r}
@@ -16,6 +17,8 @@ CV = e(w^{new}, U^{old}) - M^{new} = e(w^{new}, v(w^{old}, M^{old})) - w^{new}x^
 EV = M^{old} - e(w^{old}, U^{new}) = w^{old}x^{old} - e(w^{old}, v(w^{new}, M^{new}))
 $$
 
+The policy changes vector is written the in form $$ [\delta w_1, \delta w_2, (\delta w_3), \delta M] $$ where $$ \delta [x] $$ is expressed as a percentage change.
+
 # Cobb Douglas
 
 ## 2 Good
@@ -23,7 +26,6 @@ $$
 ### Compensating Variation
 
 ```{r}
-
 # Policy changes
 policy_changes = list(
   c(1.04, 1.17, 1.06),
@@ -79,7 +81,55 @@ cv
 ### Compensating Variation
 
 ```{r}
+# Policy changes
+policy_changes = list(
+  c(1.04, 1.17, 1, 1.06),
+  c(1.05, 0.8, 1, 0.92),
+  c(0.8, 0.9, 1, 0.95),
+  c(1.1, 0.88, 1, 0.94)
+)
 
+# Old variables
+A = 1
+a1 = 0.2
+a2 = 0.4
+a3 = 0.4
+w1 = 1
+w2 = 1
+w3 = 1
+M = 48
+
+# Calculating the old V
+v_old = cobb_douglas_three_good_umax(
+  A, 
+  a1,
+  a2,
+  a3,
+  w1, 
+  w2, 
+  w3,
+  M
+)
+
+cv = c()
+
+for (policy in policy_changes) {
+  # Calculating new expenditure function with new prices and old v
+  e_new = cobb_douglas_three_good_emin(
+    A, 
+    a1,
+    a2,
+    a3,
+    w1 * policy[1], 
+    w2 * policy[2],
+    w3 * policy[3],
+    v_old$v)
+  
+  # Calculating the compensating variation with new prices and income
+  cv = c(cv, e_new$e - M*policy[4])
+}
+
+cv
 ```
 
 ### Equivalent Variation
@@ -101,6 +151,53 @@ cv
 ### Equivalent Variation
 
 ```{r}
+# Policy changes
+policy_changes = list(
+  c(1.08, 0.87, 0.98),
+  c(1.08, 1.13, 0.95),
+  c(0.96, 0.81, 0.83),
+  c(0.84, 0.81, 0.89)
+)
+
+# Old variables
+A = 1
+a1 = 0.33
+a2 = 0.2
+w1 = 1
+w2 = 1
+sigma = 1.42
+M = 44
+
+ev = c()
+
+for (policy in policy_changes) {
+  # Calculating the new V
+  v_new = ces_two_good_umax(
+    A, 
+    sigma,
+    a1,
+    a2,
+    w1*policy[1], 
+    w2*policy[2],
+    M*policy[3]
+  )
+  
+  # Calculating new expenditure function with old prices and new v
+  e_new = ces_two_good_emin(
+    A, 
+    sigma,
+    a1,
+    a2,
+    w1, 
+    w2, 
+    v_new$v
+  )
+  
+  # Calculating the equivalent variation with old income and new utility
+  ev = c(ev, M - e_new$e)
+}
+
+ev
 
 ```
 
