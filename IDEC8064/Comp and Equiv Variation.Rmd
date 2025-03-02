@@ -7,7 +7,7 @@ source("Utility Maximization.R")
 source("Expenditure Minimization.R")
 ```
 
-@Miles - I've added the functions that came up on my quiz. You're welcome to add in yours - or, I'll chuck in the others when the need comes up.
+@Miles - I've added the functions that came up on my quiz. You're welcome to add in yours - I'll chuck in the others when the need comes up.
 
 Note: CV and EV lower is better
 
