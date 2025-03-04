@@ -9,6 +9,8 @@ source("Expenditure Minimization.R")
 
 You just have to edit the parameters in the functions and "ctrl + enter" inside the cell block.
 
+This is a test change.
+
 ```{r}
 cobb_douglas_two_good_umax(
   A = 1,
