@@ -1,0 +1,33 @@
+---
+title: "Preference Calibration"
+output: html_notebook
+---
+
+Can be extended for n goods -> x and w are vectors of equal length. They can be extended to whatever length is required.h
+
+# Cobb Douglas
+
+```{r}
+x = c(5, 8)
+w = c(2, 5)
+
+a = x*w / sum(x*w)
+a
+```
+
+# CES
+
+$$
+\sigma = 1/(1-r)
+$$
+
+```{r}
+sigma = 0.75
+x = c(5, 8, 5)
+w = c(2, 5, 10)
+
+x_sigma = x^(1/sigma)
+
+a = x_sigma*w / sum(x_sigma*w)
+a
+```
