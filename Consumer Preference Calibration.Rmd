@@ -1,6 +1,5 @@
 ---
 title: "Preference Calibration"
-output: html_notebook
 ---
 
 Can be extended for n goods -> x and w are vectors of equal length. They can be extended to whatever length is required.h

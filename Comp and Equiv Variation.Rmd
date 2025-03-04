@@ -1,6 +1,5 @@
 ---
 title: "Compensating and Equivalent Variation"
-output: "html_document"
 ---
 
 ```{r}
