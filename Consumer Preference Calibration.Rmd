@@ -2,18 +2,42 @@
 title: "Preference Calibration"
 ---
 
-Can be extended for n goods -> x and w are vectors of equal length. They can be extended to whatever length is required.h
+Can be extended for n goods -> x and w are vectors of equal length. They can be extended to whatever length is required.
 
 # Cobb Douglas
 
 ```{r}
-x = c(5, 8)
-w = c(2, 5)
+x = c(6, 9, 7)
+w = c(1, 1, 1)
 
 a = x*w / sum(x*w)
 a
 ```
+```{r}
+source("Utility Maximization.R")
 
+scenarios = list(
+  c(1.13, 1.19, 0.89, 20.46),
+  c(1.17, 1.07, 1.01, 24.64),
+  c(0.95, 1.2, 0.82, 20.02),
+  c(0.94, 0.91, 0.89, 25.74)
+)#w1, w2, w3, M
+
+for (scenario in scenarios){
+  print("New Scenario")
+print(cobb_douglas_three_good_umax(
+  1,
+  a[1],
+  a[2],
+  a[3],
+  scenario[1],
+  scenario[2],
+  scenario[3],
+  scenario[4]
+))
+}
+
+```
 # CES
 
 $$
@@ -21,12 +45,34 @@ $$
 $$
 
 ```{r}
-sigma = 0.75
-x = c(5, 8, 5)
-w = c(2, 5, 10)
+sigma = 1.03
+x = c(14, 7)
+w = c( 1, 1)
 
 x_sigma = x^(1/sigma)
 
 a = x_sigma*w / sum(x_sigma*w)
 a
+```
+
+```{r}
+scenarios = list(
+  c(1.05, 0.9, 22.68),
+  c(0.97, 1.06, 23.52),
+  c(1.16, 1.09, 18.06),
+  c(1.02, 0.99, 18.9)
+)#w1, w2, w3, M
+
+for (scenario in scenarios){
+  print("New Scenario")
+print(ces_two_good_umax(
+  1,
+  sigma,
+  a[1],
+  a[2],
+  scenario[1],
+  scenario[2],
+  scenario[3]
+))
+}
 ```
