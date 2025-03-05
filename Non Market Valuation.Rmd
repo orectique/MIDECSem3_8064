@@ -1,0 +1,39 @@
+---
+title: "Non Market Valuation"
+---
+
+# Exploratory analysis - Easier to just use the filters in the data viewer
+
+```{r}
+df = read.csv("./Data Files/Quiz01_Q24_s.csv")
+df$chosen = (df$ChosenAlternative == df$Alternative)
+```
+
+# Fitting logit model
+
+```{r}
+library(mlogit)
+library(uuid)
+```
+```{r}
+df = read.csv("./Data Files/Quiz01_Q25_s.csv")
+df$chosen = (df$ChosenAlternative == df$Alternative)
+
+df$choiceID = uuid::UUIDgenerate(n = nrow(df), use.time = TRUE)
+```
+
+```{r}
+log_data = mlogit.data(df, choice = "chosen", shape = "long", chid.var = "choiceID", alt.var = "Alternative")
+
+mlogit(chosen~)
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
