@@ -6,45 +6,93 @@ title: "Utility Maximization and Expenditure Minimization"
 source("Utility Maximization.R")
 source("Expenditure Minimization.R")
 ```
+# Cobb Douglas
 
-You just have to edit the parameters in the functions and "ctrl + enter" inside the cell block.
-
-This is a test change.
+## 2 Good
 
 ```{r}
-cobb_douglas_two_good_umax(
+# Options
+  #c(w1, w2, M),
+  #c(2, 4, 2),
+  #c(3, 5, 5),
+  #c(2, 6, 10)
+
+options = list(
+  c(1, 2, 5),
+  c(2, 4, 2),
+  c(3, 5, 5),
+  c(2, 6, 10)
+)
+
+for (option in options){
+  print("New Scenario")
+print(cobb_douglas_two_good_umax(
   A = 1,
   a1 = 0.75,
   a2 = 0.25,
-  w1 = 6,
-  w2 = 5,
-  M = 50
+  w1 = option[1],
+  w2 = option[2],
+  M = option[3]
 )
+)
+  }
+
 ```
+## 3 Good
 
 ```{r}
+options = list(
+  c(1, 2, 3, 5),
+  c(1, 2, 3, 5),
+  c(1, 2, 3, 5),
+  c(1, 2, 3, 5)
+)
+
+for (option in options){
+  print("New Scenario")
+  print(
 cobb_douglas_three_good_umax(
   A = 1,
   a1=0.75,
   a2=0.1,
   a3=0.15,
-  w1=8,
-  w2=6,
-  w3=7,
-  M=70,
+  w1=option[1],
+  w2=option[2],
+  w3=option[3],
+  M=option[4]
 )
+)
+}
 ```
-
+# CES
+## 2 Good
 ```{r}
-ces_two_good_umax(
+# Options
+  #c(w1, w2, M),
+  #c(2, 4, 2),
+  #c(3, 5, 5),
+  #c(2, 6, 10)
+options = list(
+  c(1, 2, 5),
+  c(2, 4, 2),
+  c(3, 5, 5),
+  c(2, 6, 10)
+)
+
+for (option in options){
+print("New Scenario")
+  print(
+  ces_two_good_umax(
   A = 1,
   sigma = 0.83,
   a1 = 0.33,
   a2 = 0.67,
-  w1 = 7,
-  w2 = 5,
-  M = 45
+  w1 = option[1],
+  w2 = option[2],
+  M = option[3]
 )
+)
+}
 ```
 
 ```{r}
